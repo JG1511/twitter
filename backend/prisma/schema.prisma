@@ -6,6 +6,7 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs" // importação usando require() ao invés de import, necessário para compatibilidade com o NestJS
 }
 
 datasource db {

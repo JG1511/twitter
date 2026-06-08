@@ -1,15 +1,14 @@
 services:
-  db:
-    image: postgres:latest
-    container_name: twitter
-    restart: always
+  twitter:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: twitter
     ports:
       - "5435:5432"
-    environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=12345678
-      - POSTGRES_DB=twitter
     volumes:
-      - pgdata:/var/lib/postgresql
+      - postgres-data:/var/lib/postgresql
+
 volumes:
-  pgdata:
+  postgres-data:
